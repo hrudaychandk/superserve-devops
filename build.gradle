@@ -2,7 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.2.2.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
-    id 'org.sonarqube'
+    id 'org.sonarqube' version '2.7"
 }
 
 group 'org.hruday'
@@ -41,4 +41,10 @@ test {
         suites 'src/test/resources/testng.xml'
     }
     testLogging.showStandardStreams = true
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "superserve"
+    }
 }
