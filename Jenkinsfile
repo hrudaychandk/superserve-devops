@@ -17,9 +17,10 @@ node {
         sh 'sudo docker rm superserve'
     }
     stage ('Push image to DockerHub') {
-        withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'dockerHubPwd')]) {
+        /*withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'dockerHubPwd')]) {
             sh "sudo docker login -u hrudaychandk -p ${dockerHubPwd}"
-        }
+        }*/
+        sh 'echo "$dockerhub-pass" | sudo docker login --username hrudaychandk --password-stdin'
         sh 'sudo docker push hrudaychandk/superserve_webapp:1.0'
     }
 }
