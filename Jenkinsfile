@@ -3,7 +3,7 @@ node {
         git 'https://github.com/hrudaychandk/superserve-devops.git'
     }
     stage ('Gradle build') {
-        sh './gradlew build'
+        sh './gradlew bootJar'
     }
     stage ('Build and deploy docker container') {
         sh 'sudo docker build -t hrudaychandk/superserve_webapp:1.0 .'
