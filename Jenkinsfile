@@ -18,7 +18,7 @@ node {
     }
     stage ('Push image to DockerHub') {
         withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'dockerHubPwd')]) {
-            sh "docker login -u hrudaychandk -p ${dockerHubPwd}"
+            sh "sudo docker login -u hrudaychandk -p ${dockerHubPwd}"
         }
         sh 'sudo docker push hrudaychandk/superserve_webapp:1.0'
     }
