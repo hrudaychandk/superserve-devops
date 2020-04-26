@@ -7,7 +7,7 @@ node {
     }
     stage ('Build and deploy docker container') {
         sh 'sudo docker build -t hrudaychandk/superserve_webapp:1.0 .'
-        sh 'sudo docker run --name superserve -itd -p 3334:3333 hrudaychandk/superserve_webapp:1.0'
+        sh 'sudo docker run --name superserve -itd -p 3333:3333 hrudaychandk/superserve_webapp:1.0'
     }
     stage ('Selenium tests') {
         sh './gradlew clean test'
