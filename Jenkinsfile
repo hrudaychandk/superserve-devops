@@ -4,7 +4,7 @@ node {
     }
     stage('Sonarqube analysis') {
         withSonarQubeEnv('sonarqube') {
-            sh './gradlew clean sonarqube'
+            sh './gradlew sonarqube -x test'
         }
     }    
     stage ('Gradle build') {
