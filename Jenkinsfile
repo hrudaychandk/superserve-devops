@@ -13,8 +13,8 @@ node {
         sh './gradlew test'
     }
     stage ("Destroy the container") {
-        sh 'sudo docker stop superserve'
-        sh 'sudo docker rm superserve'
+      //  sh 'sudo docker stop superserve'
+       // sh 'sudo docker rm superserve'
     }
     stage ('Push image to DockerHub') {
         withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'dockerHubPwd')]) {
