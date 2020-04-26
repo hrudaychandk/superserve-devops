@@ -10,7 +10,7 @@ node {
         sh 'sudo docker run --name superserve -itd -p 3333:3333 hrudaychandk/superserve_webapp:1.0'
     }
     stage ('Selenium tests') {
-        sh './gradlew test'
+        sh './gradlew clean test'
     }
     stage ("Destroy the container") {
         sh 'sudo docker stop superserve'
