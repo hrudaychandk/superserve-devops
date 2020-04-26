@@ -20,8 +20,11 @@ public class WebAppTest {
 
     @BeforeClass
     private void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\hkatakam\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\hkatakam\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("headless");
+        chromeOptions.addArguments("--no-sandbox");
         driver = new ChromeDriver(chromeOptions);
         // Opens a website hosted on below machine
         driver.get("http://localhost:3333");
