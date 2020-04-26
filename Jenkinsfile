@@ -2,6 +2,11 @@ node {
     stage('SCM checkout') {
         git 'https://github.com/hrudaychandk/superserve-devops.git'
     }
+    stage('Sonarqube analysis') {
+        withSonarQubeEnv('sonarqube') {
+            sh './gradlew clean sonarqube'
+        }
+    }    
     stage ('Gradle build') {
         sh './gradlew bootJar'
     }
