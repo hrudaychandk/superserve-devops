@@ -36,7 +36,8 @@ public class WebAppTest {
     private void testHomePage() throws Exception{
         assertEquals("superServe", driver.getTitle());
         driver.findElement(By.xpath("/html/body/p/a")).click();
-        Thread.sleep(3000);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/p")));
         assertEquals("superServe Greetings", driver.getTitle());
         String greetingsBody = driver.findElement(By.xpath("/html/body/p")).getText();
         assertEquals("Hello, World!", greetingsBody);
